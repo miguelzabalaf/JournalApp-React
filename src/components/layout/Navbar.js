@@ -4,7 +4,7 @@ import { BtnSecondary } from '../buttons/BtnSeconary'
 
 export const Navbar = () => {
   return (
-    <nav>
+    <nav className="navbar">
       <BtnSecondary navigateTo="/auth/login" text="Login" />
       <BtnPrimary navigateTo="/auth/register" text="Start Now" />
     </nav>
