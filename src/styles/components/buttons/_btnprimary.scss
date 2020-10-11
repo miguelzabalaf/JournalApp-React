@@ -1,0 +1,6 @@
+.btnprimary {
+  @include button($primary, $white);
+  &:hover {
+    box-shadow: $shadow;
+  }
+}

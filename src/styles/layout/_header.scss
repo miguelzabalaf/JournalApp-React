@@ -1,0 +1,19 @@
+.header {
+  background-color: $white;
+  border-bottom: 0.5px solid $text-light;
+  height: 70px;
+
+  &__container {
+    height: 70px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--logo {
+      width: 134px;
+    }
+  }
+}

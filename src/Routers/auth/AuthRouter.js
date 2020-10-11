@@ -9,7 +9,7 @@ import { RegisterPage } from '../../pages/public/auth/RegisterPage'
 
 export const AuthRouter = () => {
   return (
-    <>
+    <div>
       <Switch>
         <Route 
           path="/auth/login"
@@ -23,6 +23,6 @@ export const AuthRouter = () => {
           to="/auth/register"
         />
       </Switch>
-    </>
+    </div>
   )
 }

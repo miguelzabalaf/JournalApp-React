@@ -1,0 +1,14 @@
+@mixin button($background-color, $color-text) {
+  background-color: $background-color;
+  border-radius: 5px;
+  color: $color-text;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 5px;
+  min-width: 100px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+}
