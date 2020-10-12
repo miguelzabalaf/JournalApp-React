@@ -7,7 +7,7 @@ export const InputText = ({ type, placeholder, name, autocomplete }) => {
       type={ type }
       placeholder={ placeholder }
       name={ name }
-      autocomplete={ autocomplete }
+      autoComplete={ autocomplete }
     />
   )
 }
