@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import '../../../public/assets/journal-logo.svg';
 import { ButtonMenu } from './ButtonMenu';
 import { Navbar } from './Navbar';
+
 
 export const Header = () => {
   return (

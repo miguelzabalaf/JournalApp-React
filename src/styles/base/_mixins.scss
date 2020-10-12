@@ -1,3 +1,4 @@
+// Mixin Button
 @mixin button($background-color, $color-text) {
   background-color: $background-color;
   border-radius: 5px;
@@ -5,7 +6,7 @@
   display: inline-block;
   font-size: 12px;
   font-weight: 500;
-  margin: 5px;
+  margin: 5px 0;
   min-width: 100px;
   padding: 10px 20px;
   text-align: center;

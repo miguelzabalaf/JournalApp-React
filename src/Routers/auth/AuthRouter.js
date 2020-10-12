@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Switch,
   Route,
   Redirect,
 } from "react-router-dom";
@@ -9,20 +8,22 @@ import { RegisterPage } from '../../pages/public/auth/RegisterPage'
 
 export const AuthRouter = () => {
   return (
-    <div>
-      <Switch>
+    <div className="auth">
+      <div className="auth__box-container">
         <Route 
           path="/auth/login"
+          exact
           component={ LoginPage }
         />
         <Route 
           path="/auth/register"
-          exact component={ RegisterPage }
+          exact 
+          component={ RegisterPage }
         />
         <Redirect 
-          to="/auth/register"
+          to="/auth/login"
         />
-      </Switch>
+      </div>
     </div>
   )
 }

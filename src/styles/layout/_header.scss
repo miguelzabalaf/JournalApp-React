@@ -1,7 +1,11 @@
 .header {
   background-color: $white;
-  border-bottom: 0.5px solid $text-light;
+  border-bottom: 1px solid $white-smoke;
   height: 70px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 2;
 
   &__container {
     height: 70px;
