@@ -1,9 +1,9 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Redirect,
+  Switch,
 } from "react-router-dom";
 import { Header } from '../components/layout/Header';
 import { HomePage } from '../pages/public/HomePage';
@@ -11,7 +11,6 @@ import { AuthRouter } from './auth/AuthRouter';
 
 export const AppRouter = () => {
   return (
-    <>
     <Router>
       <Header/>
       <Switch>
@@ -21,13 +20,10 @@ export const AppRouter = () => {
         />
         <Route
           path="/"
-          exact component={ HomePage }
+          component={ HomePage }
         />
-        <Redirect 
-          to="/"
-        />
+        <Redirect to="/auth/login"/>
       </Switch>
-    </Router>
-    </>
+    </Router>      
   )
 }

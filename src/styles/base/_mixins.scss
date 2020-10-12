@@ -1,15 +1,19 @@
 // Mixin Button
-@mixin button($background-color, $color-text) {
+@mixin button($background-color, $color-text, $min-width: 100px) {
   background-color: $background-color;
   border-radius: 5px;
   color: $color-text;
+  cursor: pointer;
   display: inline-block;
   font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   margin: 5px 0;
-  min-width: 100px;
+  min-width: $min-width;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   transition: all 0.3s;
+  border: none;
+  outline: none;
 }

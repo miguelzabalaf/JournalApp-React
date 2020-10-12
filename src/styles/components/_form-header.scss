@@ -1,0 +1,9 @@
+.FormHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  img {
+    width: 25px;
+    filter: saturate(0);
+  }
+}
