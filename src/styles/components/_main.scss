@@ -1,0 +1,53 @@
+.main {
+  position: relative;
+  &__title {
+    font-weight: 500;
+    font-size: 16px;
+    color: $text-light;
+  }
+  &__button-plus {
+    position: absolute;
+    right: 0;
+    top: -18px;
+    cursor: pointer;
+    transition: all 0.5s;
+    width: 35px;
+    &:hover {
+      transform: scale(1.25);
+    }
+  }
+  &__container {
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto;
+    padding: 5px 0;
+    &::-webkit-scrollbar {
+      width: 8px;     /* Tamaño del scroll en vertical */
+      height: 5px;    /* Tamaño del scroll en horizontal */
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #E5E5E5;
+      border-radius: 4px;
+    }
+    &--card {
+      display: inline-block;
+      width: 275px;
+      height: 100px;
+      flex-shrink: 0;
+      margin-right: 10px;
+      background-color: white;
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+  main {
+    background-color: $white;
+    box-shadow: $shadow;
+    border-radius: 10px;
+    margin-top: 15px;
+    height: 50vh;
+    width: 100%;
+  }
+}

@@ -1,0 +1,9 @@
+.journal {
+  height: 100vh;
+  padding-top: 60px;
+  &__container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px;
+  }
+}

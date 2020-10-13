@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FormHeader } from '../../components/forms/FormHeader'
 import { InputText } from '../../components/forms/InputText'
 
@@ -23,7 +24,7 @@ export const LoginPage = () => {
 
   return (
     <div className="login">
-      <FormHeader title="Login"/>
+      <FormHeader title="Sign in"/>
       <form>
         {
           inputs.map( input => (
@@ -40,6 +41,17 @@ export const LoginPage = () => {
           <button className="btnprimary-large" type="submit">
             Login
           </button>
+        </div>
+        <div className="btngoogle">
+          <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+          <p>Login with Google</p>
+        </div>
+        <div className="linkform">
+          <Link 
+            to="/auth/register"
+          >
+            Create new acount
+          </Link>
         </div>
       </form>
     </div>

@@ -6,6 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import { Header } from '../components/layout/Header';
+import { JournalPage } from '../pages/private/journal/JournalPage';
 import { HomePage } from '../pages/public/HomePage';
 import { AuthRouter } from './auth/AuthRouter';
 
@@ -17,6 +18,10 @@ export const AppRouter = () => {
         <Route
           path="/auth"
           component={ AuthRouter }
+        />
+        <Route
+          path="/dashboard"
+          component={ JournalPage }
         />
         <Route
           path="/"

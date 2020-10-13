@@ -1,9 +1,12 @@
 import React from 'react'
+import { Main } from '../../../components/dashboard/Main';
 
 export const JournalPage = () => {
   return (
-    <>
-      <h1>JournalPage</h1>
-    </>
+    <div className="journal">
+      <div className="journal__container">
+        <Main/>
+      </div>
+    </div>
   )
 }
