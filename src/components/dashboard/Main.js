@@ -1,4 +1,5 @@
 import React from 'react'
+import { Note } from '../nodes/Note'
 import { JournalEntries } from './JournalEntries'
 // import { NothingSelected } from './NothingSelected'
 
@@ -10,6 +11,7 @@ export const Main = () => {
       <JournalEntries/>
       <main>
         {/* <NothingSelected/> */}
+        <Note/>
       </main>
     </div>
   )
