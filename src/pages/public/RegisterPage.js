@@ -28,7 +28,7 @@ export const RegisterPage = () => {
       autocomplete: "off"
     },
     {
-      id: "2",
+      id: "3",
       type: "password",
       placeholder: "Confirm password",
       name: "password2",

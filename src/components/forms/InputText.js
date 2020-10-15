@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const InputText = ({ type, placeholder, name, autocomplete }) => {
+export const InputText = ({ type, placeholder, name, autocomplete, value, onChange }) => {
   return (
     <input 
     className="input-text"
@@ -8,6 +8,8 @@ export const InputText = ({ type, placeholder, name, autocomplete }) => {
       placeholder={ placeholder }
       name={ name }
       autoComplete={ autocomplete }
+      value={ value }
+      onChange={ onChange }
     />
   )
 }

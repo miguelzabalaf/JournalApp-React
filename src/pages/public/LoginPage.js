@@ -1,9 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { FormHeader } from '../../components/forms/FormHeader'
-import { InputText } from '../../components/forms/InputText'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FormHeader } from '../../components/forms/FormHeader';
+import { InputText } from '../../components/forms/InputText';
+import { useForm } from '../../hooks/useForm';
+import { useDispatch } from "react-redux";
+import { startGoogleLogin, startLoginWithEmailPassword } from '../../actions/auth';
 
 export const LoginPage = () => {
+  
+  const dispatch = useDispatch();
+
+  const [ formValues, handleInputChange ] = useForm({
+    email: 'zabalafmiguel@hotmail.com',
+    password: '123456'
+  });
+
+  const { email, password } = formValues;
 
   const inputs = [
     {
@@ -11,21 +23,33 @@ export const LoginPage = () => {
       type: "email",
       placeholder: "Email",
       name: "email",
-      autocomplete: "off"
+      autocomplete: "off",
+      value: email
     },
     {
       id: "1",
       type: "password",
       placeholder: "Password",
       name: "password",
-      autocomplete: "off"
+      autocomplete: "off",
+      value: password
     }
-  ]
+  ];
+  
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // console.log(`Email: ${ email }, password: ${ password }`);
+    dispatch(startLoginWithEmailPassword(email, password))
+  };
+
+  const handleLoginWithGoogle = () => {
+    dispatch(startGoogleLogin());
+  }
 
   return (
     <div className="login">
-      <FormHeader title="Sign in"/>
-      <form>
+      <FormHeader title="Login"/>
+      <form onSubmit={ handleLogin }>
         {
           inputs.map( input => (
             <InputText 
@@ -34,6 +58,8 @@ export const LoginPage = () => {
               placeholder={ input.placeholder } 
               name={ input.name } 
               autocomplete={ input.autocomplete }
+              value={ input.value }
+              onChange={ handleInputChange }
               />
           ))
         }
@@ -42,7 +68,10 @@ export const LoginPage = () => {
             Login
           </button>
         </div>
-        <div className="btngoogle">
+        <div 
+          className="btngoogle"
+          onClick={ handleLoginWithGoogle }
+          >
           <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
           <p>Login with Google</p>
         </div>
@@ -55,5 +84,5 @@ export const LoginPage = () => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
