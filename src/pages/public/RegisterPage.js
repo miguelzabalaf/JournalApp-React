@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { FormHeader } from '../../components/forms/FormHeader'
 import { FormMessageError } from '../../components/forms/FormMessageError'
 import { InputText } from '../../components/forms/InputText'
 import { useForm } from '../../hooks/useForm'
 import validator from "validator";
+import { useDispatch, useSelector } from 'react-redux'
+import { removeError, setError } from '../../actions/ui'
+import { startRegisterWithNameEmailPassword } from '../../actions/auth'
 
 export const RegisterPage = () => {
+
+  const dispatch = useDispatch();
+
+  const { msgError } = useSelector( state => state.ui);
 
   const initialState = {
     name: '',
@@ -14,25 +21,11 @@ export const RegisterPage = () => {
     password: '',
     password2: ''
   }
-
+  
   const [formValues, handleInputChange ] = useForm(initialState);
   
   const { name, email, password, password2 } = formValues;
   
-  const [messageError, setMessageError] = useState({
-    messageErrorVisible: false,
-    messageErrorText: ''
-  });
-  
-  const { messageErrorVisible, messageErrorText } = messageError;
-  
-  useEffect(() => {
-    setMessageError({
-      messageErrorVisible: false,
-      messageErrorText: ''
-    })
-  }, [name, email, password, password2])
-
   const inputs = [
     {
       id: "0",
@@ -73,30 +66,22 @@ export const RegisterPage = () => {
     e.preventDefault();
     // console.log(`Email: ${email}, name: ${name}..`)
     if (isFormValid()) {
-
+      dispatch(startRegisterWithNameEmailPassword(name, email, password));
     }
   }
 
   const isFormValid = () => {
     if ( name.trim().length === 0) {
-      setMessageError({
-        messageErrorVisible: true,
-        messageErrorText: 'Name is Requeried.'
-      });
+      dispatch(setError('Name is Requeried.'));
       return false;
     } else if ( !validator.isEmail( email ) ) {
-      setMessageError({
-        messageErrorVisible: true,
-        messageErrorText: 'Email is not valid.'
-      });
+      dispatch(setError('Email is not valid.'));
       return false;
     } else if ( password.trim().length < 6 || password !== password2 ) {
-      setMessageError({
-        messageErrorVisible: true,
-        messageErrorText: 'Password should be at least 6 characters and match each other.'
-      });
+      dispatch(setError('Password should be at least 6 characters and match each other.'));
       return false;
     }
+    dispatch(removeError());
     return true;
   }
 
@@ -118,7 +103,7 @@ export const RegisterPage = () => {
             ))
           }
       {
-        messageErrorVisible && <FormMessageError message={messageErrorText}/>
+        msgError && <FormMessageError message={ msgError }/>
       }
       <div>
         <button className="btnprimary-large" type="submit">

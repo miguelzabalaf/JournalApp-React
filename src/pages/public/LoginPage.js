@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { FormHeader } from '../../components/forms/FormHeader';
 import { InputText } from '../../components/forms/InputText';
 import { useForm } from '../../hooks/useForm';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { startGoogleLogin, startLoginWithEmailPassword } from '../../actions/auth';
+import { FormMessageError } from '../../components/forms/FormMessageError';
 
 export const LoginPage = () => {
   
@@ -14,6 +15,8 @@ export const LoginPage = () => {
     email: '',
     password: ''
   }
+
+  const { msgError } = useSelector(state => state.ui)
 
   const [ formValues, handleInputChange ] = useForm(initialState);
 
@@ -64,6 +67,9 @@ export const LoginPage = () => {
               onChange={ handleInputChange }
               />
           ))
+        }
+        {
+          msgError && <FormMessageError message={ msgError } />
         }
         <div>
           <button className="btnprimary-large" type="submit">
