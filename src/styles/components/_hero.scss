@@ -3,6 +3,7 @@
   background-color: $white;
   display: flex;
   align-items: flex-end;
+  animation: 0.5s fadeAnimation ease-in-out;
   &__container {
     padding: 25px;
     height: 400px;

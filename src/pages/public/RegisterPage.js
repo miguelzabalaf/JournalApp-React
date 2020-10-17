@@ -13,7 +13,7 @@ export const RegisterPage = () => {
 
   const dispatch = useDispatch();
 
-  const { msgError } = useSelector( state => state.ui);
+  const { msgError, loading } = useSelector( state => state.ui);
 
   const initialState = {
     name: '',
@@ -106,7 +106,12 @@ export const RegisterPage = () => {
         msgError && <FormMessageError message={ msgError }/>
       }
       <div>
-        <button className="btnprimary-large" type="submit">
+        <button 
+          className="btnprimary-large"
+          type="submit"
+          style={{ opacity: `${ loading ? 0.5 : 1 }` }}
+          disabled={ loading }
+          >
           Sign in
         </button>
       </div>

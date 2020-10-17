@@ -16,7 +16,7 @@ export const LoginPage = () => {
     password: ''
   }
 
-  const { msgError } = useSelector(state => state.ui)
+  const { msgError, loading } = useSelector(state => state.ui)
 
   const [ formValues, handleInputChange ] = useForm(initialState);
 
@@ -43,7 +43,6 @@ export const LoginPage = () => {
   
   const handleLogin = (e) => {
     e.preventDefault();
-    // console.log(`Email: ${ email }, password: ${ password }`);
     dispatch(startLoginWithEmailPassword(email, password))
   };
 
@@ -72,7 +71,12 @@ export const LoginPage = () => {
           msgError && <FormMessageError message={ msgError } />
         }
         <div>
-          <button className="btnprimary-large" type="submit">
+          <button 
+            className="btnprimary-large" 
+            type="submit"
+            style={{ opacity: `${ loading ? 0.5 : 1 }` }}
+            disabled={ loading }
+            >
             Login
           </button>
         </div>

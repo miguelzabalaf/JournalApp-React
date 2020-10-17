@@ -6,3 +6,12 @@
     opacity: 1;
   }
 }
+
+@keyframes pulseAnimation {
+  from {
+    transform: scale(0.5);
+  } 
+  to {
+    transform: scale(1);
+  }
+}

@@ -36,6 +36,7 @@
     align-items: center;
     justify-content: center;
     span {
+      cursor: default;
       color: $text-light;
       font-size: 16px;
     }

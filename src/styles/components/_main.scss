@@ -1,4 +1,5 @@
 .main {
+  animation: 0.5s fadeAnimation ease-in-out;
   position: relative;
   &__title {
     font-weight: 500;
