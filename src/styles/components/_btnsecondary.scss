@@ -1,6 +1,6 @@
 .btnsecondary {
   @include button($white-smoke, $text);
   &:hover {
-    box-shadow: $shadow;
+    background-color: darken($color: $white-smoke, $amount: 5);
   }
 }

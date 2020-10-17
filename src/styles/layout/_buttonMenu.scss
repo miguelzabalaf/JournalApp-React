@@ -43,6 +43,7 @@
   transition: all 0.3s;
   &:hover {
     box-shadow: $shadow;
+    background-color: darken($color: $white, $amount: 5);
   }
 
   img {

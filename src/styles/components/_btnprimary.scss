@@ -1,12 +1,14 @@
 .btnprimary {
   @include button($primary, $white);
   &:hover {
-    box-shadow: $shadow;
+    // box-shadow: $shadow;
+    background-color: darken($color: $primary, $amount: 10);
   }
 }
 .btnprimary-large {
   @include button($primary, $white, 100%);
   &:hover {
-    box-shadow: $shadow;
+    background-color: darken($color: $primary, $amount: 10);
+    // box-shadow: $shadow;
   }
 }

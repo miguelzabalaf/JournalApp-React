@@ -17,6 +17,16 @@ export const login = (uid, displayName) => ({
   }
 });
 
+export const register = (name, email, password, password2) => ({
+  type: types.register,
+  payload: {
+    name,
+    email,
+    password,
+    password2
+  }
+})
+
 export const startGoogleLogin = () => {
   return ( dispatch ) => {
     firebase.auth().signInWithPopup(googleAuthProvider)

@@ -10,10 +10,12 @@ export const LoginPage = () => {
   
   const dispatch = useDispatch();
 
-  const [ formValues, handleInputChange ] = useForm({
-    email: 'zabalafmiguel@hotmail.com',
-    password: '123456'
-  });
+  const initialState = {
+    email: '',
+    password: ''
+  }
+
+  const [ formValues, handleInputChange ] = useForm(initialState);
 
   const { email, password } = formValues;
 
