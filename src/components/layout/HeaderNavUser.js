@@ -16,6 +16,7 @@ export const HeaderNavUser = ({ name, photoURL }) => {
 						<span>{ name.slice(0, 1) }</span>
 					</div>
 			}
+
 		</div>
 	)
 }

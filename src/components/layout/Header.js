@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { BtnPrimary } from '../buttons/BtnPrimary';
 import { BtnSecondary } from '../buttons/BtnSeconary';
-import { ButtonMenu } from './ButtonMenu';
+import { ButtonLogout } from './ButtonLogout';
 import { HeaderNavUser } from './HeaderNavUser';
 
 
@@ -26,7 +26,9 @@ export const Header = () => {
           :
             <HeaderNavUser name={ name } photoURL={ photoURL } />
         }
-        <ButtonMenu/>
+        {
+          uid && <ButtonLogout/>
+        }
       </div>
     </header>
   )

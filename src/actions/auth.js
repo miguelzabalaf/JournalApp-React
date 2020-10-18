@@ -27,6 +27,17 @@ export const login = (uid, displayName, photoURL) => ({
   }
 });
 
+export const startLogout = () => {
+  return async (dispatch) => {
+    await firebase.auth().signOut();
+    dispatch(logout());
+  }
+}
+
+export const logout = () => ({
+  type: types.logout
+})
+
 export const register = (name, email, password, password2) => ({
   type: types.register,
   payload: {

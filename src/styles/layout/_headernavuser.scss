@@ -2,6 +2,8 @@
   height: 45px;
   display: flex;
   align-items: center;
+  position: absolute;
+  right: 65px;
   &__name {
     span {
       color: $text-light;

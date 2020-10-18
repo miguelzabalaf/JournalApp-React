@@ -7,7 +7,7 @@ import { useForm } from '../../hooks/useForm'
 import validator from "validator";
 import { useDispatch, useSelector } from 'react-redux'
 import { removeError, setError } from '../../actions/ui'
-import { startRegisterWithNameEmailPassword } from '../../actions/auth'
+import { startGoogleLogin, startRegisterWithNameEmailPassword } from '../../actions/auth'
 
 export const RegisterPage = () => {
 
@@ -85,6 +85,10 @@ export const RegisterPage = () => {
     return true;
   }
 
+  const handleLoginWithGoogle = () => {
+    dispatch(startGoogleLogin());
+  }
+
   return (
     <div className="register">
       <FormHeader title="Register"/>
@@ -115,7 +119,10 @@ export const RegisterPage = () => {
           Sign in
         </button>
       </div>
-      <div className="btngoogle">
+      <div 
+        className="btngoogle"
+        onClick={ handleLoginWithGoogle }  
+      >
         <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
         <p>Sign in with Google</p>
       </div>
