@@ -1,20 +1,30 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Note } from '../nodes/Note'
+import { useDispatch, useSelector } from 'react-redux'
+import { startNewNote } from '../../actions/notes'
+import { Note } from '../notes/Note'
 import { JournalEntries } from './JournalEntries'
-// import { NothingSelected } from './NothingSelected'
 
 export const Main = () => {
 
-  const { name } = useSelector(state => state.auth)
+  const dispatch = useDispatch();
+
+  const { name } = useSelector(state => state.auth);
+
+  const handleAddNewEntry = () => {
+    dispatch(startNewNote());
+  }
 
   return (
     <div className="main">
       <h3 className="main__title">Your recent posts <strong>{ name }</strong></h3>
-      <img className="main__button-plus" src="../assets/icons/button-plus.svg" alt="icon-plus"/>
+      <img 
+        className="main__button-plus"
+        src="../assets/icons/button-plus.svg"
+        alt="icon-plus"
+        onClick={ handleAddNewEntry }
+        />
       <JournalEntries/>
       <main>
-        {/* <NothingSelected/> */}
         <Note/>
       </main>
     </div>

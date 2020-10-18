@@ -5,6 +5,18 @@
   height: 100%;
   padding: 10px;
   position: relative;
+  &__imageMessage {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    img {
+      width: 60%;
+      position: absolute;
+      bottom: -100px;
+    }
+  }
   &__header-bar {
     border-bottom: 1px solid $white-smoke ;
     background-color: $white;
@@ -17,6 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 2;
     &--date {
       display: flex;
       align-items: center;
@@ -69,6 +82,23 @@
       height: 100%;
       border-radius: 10px;
       object-fit: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .note {
+    &__imageMessage {
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      img {
+        width: 80%;
+        position: absolute;
+        bottom: -50px;
+      }
     }
   }
 }
