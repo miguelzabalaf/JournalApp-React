@@ -10,6 +10,8 @@ import { Header } from '../components/layout/Header';
 import { JournalPage } from '../pages/private/journal/JournalPage';
 import { HomePage } from '../pages/public/HomePage';
 import { AuthRouter } from './auth/AuthRouter';
+import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
 import { useDispatch } from 'react-redux';
 import { login } from '../actions/auth';
 import { useState } from 'react';
@@ -29,6 +31,8 @@ export const AppRouter = () => {
       if ( user?.uid ) {
         dispatch(login(user.uid, user.displayName, user.photoURL));
         setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false)
       }
 
       setChecking(false);
@@ -46,13 +50,15 @@ export const AppRouter = () => {
         <LoadingScreen/>
         :
         <Switch>
-          <Route
+          <PublicRoute
             path="/auth"
             component={ AuthRouter }
+            isAuthenticated={ isLoggedIn }
           />
-          <Route
+          <PrivateRoute
             path="/dashboard"
             component={ JournalPage }
+            isAuthenticated={ isLoggedIn }
           />
           <Route
             path="/"

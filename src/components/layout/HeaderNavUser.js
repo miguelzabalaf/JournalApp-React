@@ -13,7 +13,7 @@ export const HeaderNavUser = ({ name, photoURL }) => {
 					</div>
 				:
 					<div className="headernavuser__defaultImage">
-						<span>{ name.slice(0, 1) }</span>
+						<span>{ name?.slice(0, 1) }</span>
 					</div>
 			}
 
